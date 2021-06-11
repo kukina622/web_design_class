@@ -1,50 +1,37 @@
 <template>
   <v-app>
-    <v-app-bar app color="primary" dark>
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
+    <v-app-bar app color="#00ACC1">
+      <v-app-bar-title class="font-weight-black white--text">
+        智慧教育 升學規劃
+      </v-app-bar-title>
       <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
+      <v-btn-toggle mandatory group color="white">
+        <v-btn width="65px" class="font-weight-black white--text">高中</v-btn>
+        <v-btn width="65px" class="font-weight-black white--text">高職</v-btn>
+        <v-btn width="65px" class="font-weight-black white--text">五專</v-btn>
+      </v-btn-toggle>
     </v-app-bar>
-
     <v-main>
-      <router-view />
+      <mainPage />
     </v-main>
   </v-app>
 </template>
 
 <script>
+import mainPage from "@/components/mainPage";
 export default {
   name: "App",
-
+  components: {
+    mainPage,
+  },
   data: () => ({
     //
   }),
 };
 </script>
+
+<style>
+* {
+  font-family: "微軟正黑體";
+}
+</style>
