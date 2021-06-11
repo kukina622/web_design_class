@@ -12,17 +12,17 @@
       </v-btn-toggle>
     </v-app-bar>
     <v-main>
-      <mainPage />
+      <departmentIntro />
     </v-main>
   </v-app>
 </template>
 
 <script>
-import mainPage from "@/components/mainPage";
+import departmentIntro from "@/components/departmentIntro";
 export default {
   name: "App",
   components: {
-    mainPage,
+    departmentIntro,
   },
   data: () => ({
     //
