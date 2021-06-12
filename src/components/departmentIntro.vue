@@ -3,7 +3,6 @@
     <v-col cols="auto">
       <v-navigation-drawer
         permanent
-        width="256"
         height="650"
         floating
         style="overflow: auto"

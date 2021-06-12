@@ -31,7 +31,7 @@
         </v-card>
       </transition>
     </v-col>
-    <v-col lg="3" class="mr-3 mt-sm-15" sm="6" cols="8">
+    <v-col lg="3" class="mr-3 mt-sm-15 mt-15" sm="6" cols="8">
       <transition name="flyInto">
         <v-card height="290px" v-show="show">
           <v-row justify="center" class="fill-height">
@@ -62,7 +62,7 @@
         </v-card>
       </transition>
     </v-col>
-    <v-col lg="3" sm="6" class="mt-sm-15" cols="8">
+    <v-col lg="3" sm="6" class="mt-sm-15 mt-15" cols="8">
       <transition name="flyInto">
         <v-card height="290px" v-show="show">
           <v-row justify="center" class="fill-height">
@@ -84,7 +84,7 @@
               <v-btn
                 color="primary"
                 href="#department"
-                @click="watchedSchoolSystem('fuve_year')"
+                @click="watchedSchoolSystem('five_year')"
               >
                 看介紹
               </v-btn>
@@ -101,7 +101,7 @@ export default {
   data() {
     return {
       show: false,
-      schoolSystem: ["senior", "vocational", "fuve_year"],
+      schoolSystem: ["senior", "vocational", "five_year"],
     };
   },
   mounted() {

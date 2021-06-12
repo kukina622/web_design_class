@@ -23,7 +23,7 @@
         <v-btn
           width="65px"
           class="font-weight-black white--text"
-          @click="changeSchoolSystem('fuve_year')"
+          @click="changeSchoolSystem('five_year')"
           href="#department"
           >五專</v-btn
         >
