@@ -19,7 +19,13 @@
               </span>
             </v-col>
             <v-col class="d-flex justify-center">
-              <v-btn color="primary" href="#department"> 看介紹 </v-btn>
+              <v-btn
+                color="primary"
+                href="#department"
+                @click="watchedSchoolSystem('senior')"
+              >
+                看介紹
+              </v-btn>
             </v-col>
           </v-row>
         </v-card>
@@ -44,7 +50,13 @@
               </span>
             </v-col>
             <v-col class="d-flex justify-center">
-              <v-btn color="primary" href="#department"> 看介紹 </v-btn>
+              <v-btn
+                color="primary"
+                href="#department"
+                @click="watchedSchoolSystem('vocational')"
+              >
+                看介紹
+              </v-btn>
             </v-col>
           </v-row>
         </v-card>
@@ -69,7 +81,13 @@
               </span>
             </v-col>
             <v-col class="d-flex justify-center">
-              <v-btn color="primary" href="#department"> 看介紹 </v-btn>
+              <v-btn
+                color="primary"
+                href="#department"
+                @click="watchedSchoolSystem('fuve_year')"
+              >
+                看介紹
+              </v-btn>
             </v-col>
           </v-row>
         </v-card>
@@ -83,10 +101,17 @@ export default {
   data() {
     return {
       show: false,
+      schoolSystem: ["senior", "vocational", "fuve_year"],
     };
   },
   mounted() {
     this.show = true;
+  },
+  methods: {
+    watchedSchoolSystem(schoolSystem) {
+      this.$store.commit("changeSchoolSystem", schoolSystem);
+      this.$emit("changeActiveBtn", this.schoolSystem.indexOf(schoolSystem));
+    },
   },
 };
 </script>

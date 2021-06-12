@@ -5,15 +5,33 @@
         智慧教育 升學規劃
       </v-app-bar-title>
       <v-spacer></v-spacer>
-      <v-btn-toggle mandatory group color="white">
-        <v-btn width="65px" class="font-weight-black white--text">高中</v-btn>
-        <v-btn width="65px" class="font-weight-black white--text">高職</v-btn>
-        <v-btn width="65px" class="font-weight-black white--text">五專</v-btn>
+      <v-btn-toggle mandatory group color="white" v-model="activeButton">
+        <v-btn
+          width="65px"
+          class="font-weight-black white--text"
+          @click="changeSchoolSystem('senior')"
+          href="#department"
+          >高中</v-btn
+        >
+        <v-btn
+          width="65px"
+          class="font-weight-black white--text"
+          @click="changeSchoolSystem('vocational')"
+          href="#department"
+          >高職</v-btn
+        >
+        <v-btn
+          width="65px"
+          class="font-weight-black white--text"
+          @click="changeSchoolSystem('fuve_year')"
+          href="#department"
+          >五專</v-btn
+        >
       </v-btn-toggle>
     </v-app-bar>
     <v-main>
       <v-container fluid>
-        <schoolSystemIntro />
+        <schoolSystemIntro @changeActiveBtn="changeActiveBtn" />
         <departmentIntro />
       </v-container>
     </v-main>
@@ -31,8 +49,16 @@ export default {
     schoolSystemIntro,
   },
   data: () => ({
-    //
+    activeButton: 0,
   }),
+  methods: {
+    changeSchoolSystem(schoolSystem) {
+      this.$store.commit("changeSchoolSystem", schoolSystem);
+    },
+    changeActiveBtn(index) {
+      this.activeButton = index;
+    },
+  },
 };
 </script>
 
