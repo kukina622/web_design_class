@@ -1,6 +1,6 @@
 <template>
   <v-row align="center" justify="center" style="height: calc(100vh - 64px)">
-    <v-col cols="3" class="mr-3">
+    <v-col lg="3" class="mr-3 mt-sm-15" sm="6" cols="8">
       <transition name="flyInto">
         <v-card height="290px" v-show="show">
           <v-row justify="center" class="fill-height">
@@ -31,7 +31,7 @@
         </v-card>
       </transition>
     </v-col>
-    <v-col cols="3" class="mr-3">
+    <v-col lg="3" class="mr-3 mt-sm-15" sm="6" cols="8">
       <transition name="flyInto">
         <v-card height="290px" v-show="show">
           <v-row justify="center" class="fill-height">
@@ -62,7 +62,7 @@
         </v-card>
       </transition>
     </v-col>
-    <v-col cols="3">
+    <v-col lg="3" sm="6" class="mt-sm-15" cols="8">
       <transition name="flyInto">
         <v-card height="290px" v-show="show">
           <v-row justify="center" class="fill-height">
