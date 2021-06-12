@@ -1,5 +1,5 @@
 <template>
-  <v-row id="department" style="height: calc(100vh - 64px)">
+  <v-row id="department">
     <v-col cols="auto">
       <v-navigation-drawer
         permanent
