@@ -4,6 +4,7 @@
       <v-navigation-drawer
         :height="windowWidth >= 800 ? '650' : '100%'"
         :app="windowWidth < 800"
+        :permanent="windowWidth >= 800"
         v-model="drawer"
       >
         <v-list nav>
@@ -20,7 +21,7 @@
         </v-list>
       </v-navigation-drawer></v-col
     >
-    <v-col>
+    <v-col class="mr-5">
       <v-card height="100%" style="position: relative">
         <v-card-title class="d-flex justify-center text-h4 font-weight-black">
           {{ department_text === "" ? "科系" : department_text }}
@@ -96,6 +97,9 @@ export default {
     this.$bus.$on("openDrawer", () => {
       this.drawer = true;
     });
+  },
+  beforeDestroy() {
+    this.$bus.$off("openDrawer");
   },
 };
 </script>
