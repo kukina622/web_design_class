@@ -89,7 +89,10 @@ export default {
       }
     },
   },
-  mounted() {
+  created() {
+    if (this.windowWidth < 800) {
+      this.drawer = false;
+    }
     this.$bus.$on("openDrawer", () => {
       this.drawer = true;
     });
