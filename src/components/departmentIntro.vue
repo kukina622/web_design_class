@@ -22,7 +22,7 @@
       </v-navigation-drawer></v-col
     >
     <v-col>
-      <v-card height="100%">
+      <v-card height="100%" style="position: relative">
         <v-card-title class="d-flex justify-center text-h4 font-weight-black">
           {{ department_text === "" ? "科系" : department_text }}
         </v-card-title>
@@ -38,6 +38,7 @@
         <v-card-text class="text-h6">
           {{ future_text }}
         </v-card-text>
+        <img :src="d_image" class="d_img" height="30%" />
       </v-card>
     </v-col>
   </v-row>
@@ -53,6 +54,7 @@ export default {
       department_text: "",
       intro_text: "",
       future_text: "",
+      d_image: require("../assets/department/觀光事業科.jpg"),
     };
   },
   methods: {
@@ -64,6 +66,7 @@ export default {
         this.department_text = dataObj.department;
         this.intro_text = dataObj.intro;
         this.future_text = dataObj.future;
+        this.d_image = require(`../assets/department/${dataObj.img}`);
         this.selectedDepartment = department;
       }
     },
@@ -73,3 +76,11 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.d_img {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+</style>
