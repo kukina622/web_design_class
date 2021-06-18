@@ -2,10 +2,9 @@
   <v-row id="department">
     <v-col cols="auto">
       <v-navigation-drawer
-        permanent
-        height="650"
-        floating
-        style="overflow: auto"
+        :height="windowWidth >= 800 ? '650' : '100%'"
+        :app="windowWidth < 800"
+        v-model="drawer"
       >
         <v-list nav>
           <v-list-item-group color="#4FC3F7" mandatory>
@@ -38,7 +37,9 @@
         <v-card-text class="text-h6">
           {{ future_text }}
         </v-card-text>
-        <img :src="d_image" class="d_img" />
+        <div class="d-flex justify-end">
+          <img :src="d_image" class="d_img" />
+        </div>
       </v-card>
     </v-col>
   </v-row>
@@ -48,6 +49,7 @@
 import { mapGetters } from "vuex";
 
 export default {
+  props: ["windowWidth"],
   data() {
     return {
       selectedDepartment: "",
@@ -55,6 +57,7 @@ export default {
       intro_text: "",
       future_text: "",
       d_image: require("../assets/department/觀光事業科.jpg"),
+      drawer: true,
     };
   },
   methods: {
@@ -69,10 +72,27 @@ export default {
         this.d_image = require(`../assets/department/${dataObj.img}`);
         this.selectedDepartment = department;
       }
+      if (this.windowWidth < 800) {
+        this.drawer = false;
+      }
     },
   },
   computed: {
     ...mapGetters(["getterSchoolSystemData"]),
+  },
+  watch: {
+    windowWidth(newVal) {
+      if (newVal >= 800) {
+        this.drawer = true;
+      } else if (newVal < 800) {
+        this.drawer = false;
+      }
+    },
+  },
+  mounted() {
+    this.$bus.$on("openDrawer", () => {
+      this.drawer = true;
+    });
   },
 };
 </script>
@@ -83,5 +103,10 @@ export default {
   height: 30%;
   right: 0;
   bottom: 0;
+}
+@media (max-width: 1100px) {
+  .d_img {
+    position: static;
+  }
 }
 </style>

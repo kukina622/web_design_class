@@ -1,6 +1,10 @@
 <template>
   <v-app>
     <v-app-bar app color="#00ACC1">
+      <v-app-bar-nav-icon
+        v-if="windowWidth < 800"
+        @click="openDrawer"
+      ></v-app-bar-nav-icon>
       <v-app-bar-title class="font-weight-black white--text">
         智慧教育 升學規劃
       </v-app-bar-title>
@@ -29,10 +33,10 @@
         >
       </v-btn-toggle>
     </v-app-bar>
-    <v-main>
+    <v-main v-resize="resize">
       <v-container fluid>
         <schoolSystemIntro @changeActiveBtn="changeActiveBtn" />
-        <departmentIntro />
+        <departmentIntro :windowWidth="windowWidth" />
       </v-container>
     </v-main>
   </v-app>
@@ -50,6 +54,7 @@ export default {
   },
   data: () => ({
     activeButton: 0,
+    windowWidth: "",
   }),
   methods: {
     changeSchoolSystem(schoolSystem) {
@@ -58,6 +63,15 @@ export default {
     changeActiveBtn(index) {
       this.activeButton = index;
     },
+    resize() {
+      this.windowWidth = window.innerWidth;
+    },
+    openDrawer() {
+      this.$bus.$emit("openDrawer");
+    },
+  },
+  mounted() {
+    this.resize();
   },
 };
 </script>
