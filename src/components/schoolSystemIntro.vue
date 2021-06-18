@@ -1,6 +1,6 @@
 <template>
-  <v-row align="center" justify="center" style="height: calc(100vh - 64px)">
-    <v-col lg="3" class="mr-3 mt-sm-15" sm="6" cols="8">
+  <v-row align="center" justify="center" class="outerRow">
+    <v-col lg="3" class="mr-3 mt-sm-15 mt-15" sm="6" cols="10">
       <transition name="flyInto">
         <v-card height="290px" v-show="show">
           <v-row justify="center" class="fill-height">
@@ -31,7 +31,7 @@
         </v-card>
       </transition>
     </v-col>
-    <v-col lg="3" class="mr-3 mt-sm-15 mt-15" sm="6" cols="8">
+    <v-col lg="3" class="mr-3 mt-sm-15 mt-15" sm="6" cols="10">
       <transition name="flyInto">
         <v-card height="290px" v-show="show">
           <v-row justify="center" class="fill-height">
@@ -62,7 +62,7 @@
         </v-card>
       </transition>
     </v-col>
-    <v-col lg="3" sm="6" class="mt-sm-15 mt-15" cols="8">
+    <v-col lg="3" sm="6" class="mt-sm-15 mt-15" cols="10">
       <transition name="flyInto">
         <v-card height="290px" v-show="show">
           <v-row justify="center" class="fill-height">
@@ -153,5 +153,13 @@ a:active {
 }
 .v-avatar span {
   pointer-events: none;
+}
+.outerRow {
+  height: calc(100vh - 64px);
+}
+@media (max-width: 1264px) {
+  .outerRow {
+    height: auto;
+  }
 }
 </style>

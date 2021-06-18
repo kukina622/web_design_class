@@ -38,7 +38,7 @@
         <v-card-text class="text-h6">
           {{ future_text }}
         </v-card-text>
-        <img :src="d_image" class="d_img" height="30%" />
+        <img :src="d_image" class="d_img" />
       </v-card>
     </v-col>
   </v-row>
@@ -80,6 +80,7 @@ export default {
 <style scoped>
 .d_img {
   position: absolute;
+  height: 30%;
   right: 0;
   bottom: 0;
 }
