@@ -114,6 +114,7 @@ export default {
 @media (max-width: 1100px) {
   .d_img {
     position: static;
+    max-width: 100%;
   }
 }
 </style>
